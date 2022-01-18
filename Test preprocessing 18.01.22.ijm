@@ -7,6 +7,7 @@
 	block_radius = 2;
 	VARvalue = 1;
 	SPD = 3;
+	Tolerance = 80;
 	rename("A");
 		// Saving the Inverted IMG
 		run("Duplicate...", " ");
