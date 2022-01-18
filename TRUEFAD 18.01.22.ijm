@@ -381,4 +381,3 @@ if(BMchoice == 1){
 	showMessage("Please find on your desktop all the datas as an XLX spreadsheet");
 	showMessage("and in the second directory that you have chosen, all the myotubes found for each image.");
 	showMessage("Have a nice day! - Code written by Aurelien BRUN - ASMS Clermont-Ferrand");
-*/
