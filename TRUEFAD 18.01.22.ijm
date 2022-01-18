@@ -352,6 +352,6 @@
 	showMessage("TRUEFAD has now finished the job");
 	showMessage("Please find on your desktop all the datas as an XLX spreadsheet");
 	showMessage("and in the second directory that you have chosen, all the myotubes found for each image.");
-	showMessage("Have a nice day!");
+	showMessage("Have a nice day! - Coded by Aurelien BRUN - Equipe ASMS Clermont-FD");
 
 
