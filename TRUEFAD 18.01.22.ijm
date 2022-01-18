@@ -89,7 +89,6 @@
 	H=getHeight();
 	W=getWidth();
 	BS = Math.round(W/5);
-	//setBatchMode(true);
 	rename("A");
 		//Channel spliting
 		run("Split Channels");
