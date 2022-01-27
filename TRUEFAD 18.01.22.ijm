@@ -1,4 +1,7 @@
-Dialog.create("ImageJ-TRUEFAD-V0.8-Step1");
+toolname = "ImageJ-TRUEFAD";
+version = "V0.8";
+
+Dialog.create(toolname + "-" + version + "-Step1");
 Dialog.addMessage("Macro started! What kind of images do you want to analyze?");
 Dialog.addChoice("Type:", newArray("RGB phase contrast L6 or C2C12", "RGB MHC fluorescence of SKMDC cells"));
 Dialog.addMessage("Rate the performance of your machine. Plugin will take it in consideration for the processing speed");
@@ -8,7 +11,7 @@ Dialog.show();
 IMGtype = Dialog.getChoice();
 SPEED = Dialog.getNumber();
 BMchoice = Dialog.getCheckbox();
-SPD=3;
+SPD = 3;
 // SPD is then inverted to become a multiplicative coefficient of wait time
 if (SPEED == 1) {
 	SPD = 5;
@@ -23,7 +26,7 @@ if (SPEED == 5) {
 	SPD = 1;
 }
 if (IMGtype == "RGB MHC fluorescence of SKMDC cells") {
-	Dialog.create("ImageJ-TRUEFAD-V0.8-Fluorescence MHC Calibration");
+	Dialog.create(toolname + "-" + version + "-Fluorescence MHC Calibration");
 	Dialog.addMessage("Select the apropriate parameters for your MHC IMGs");
 	Dialog.addSlider("Local contrast adjustment", 1, 10, 3);
 	Dialog.addSlider("Initial smoothness filter", 1, 10, 3);
@@ -42,7 +45,7 @@ if (IMGtype == "RGB MHC fluorescence of SKMDC cells") {
 	MAXell = Dialog.getNumber();
 }
 if (IMGtype == "RGB phase contrast L6 or C2C12") {
-	Dialog.create("ImageJ-TRUEFAD-V0.8-Phase contrast Calibration");
+	Dialog.create(toolname + "-" + version + "-Phase contrast Calibration");
 	Dialog.addMessage("Select the apropriate parameters for your phase contrast IMGs");
 	Dialog.addSlider("Local contrast adjustment", 1, 40, 25);
 	Dialog.addSlider("Local variance filter block", 1, 30, 2);
@@ -64,12 +67,12 @@ if (IMGtype == "RGB phase contrast L6 or C2C12") {
 	MINell = Dialog.getNumber();
 	MAXell = Dialog.getNumber();
 }
-Dialog.create("ImageJ-TRUEFAD-V0.8-Step2");
+Dialog.create(toolname + "-" + version + "-Step2");
 Dialog.addMessage("Macro started, you will have to select path to your raw images folder.");
 Dialog.show();
 dir = getDir("Choose the Directory for Input");
 list = getFileList(dir);
-Dialog.create("ImageJ-TRUEFAD-V0.8-Step3");
+Dialog.create(toolname + "-" + version + "-Step3");
 Dialog.addMessage("Now select path to the directory for myotubes extraction mask output.");
 Dialog.show();
 Output = getDir("Select the Directory for Output");
@@ -82,13 +85,15 @@ wait(SPD*500);
 for (n=0; n<list.length; n++) {
 	showProgress(n+1, list.length);
 	open(dir+list[n]);
+
 	//Image treatment and segmentation
+	name = getTitle();
+	H = getHeight();
+	W = getWidth();
+	BS = Math.round(W/5);
+
 	// Preprocessing for fluorescence
 	if (IMGtype=="RGB MHC fluorescence of SKMDC cells") {
-		name = getTitle();
-		H=getHeight();
-		W=getWidth();
-		BS = Math.round(W/5);
 		rename("A");
 		//Channel spliting
 		run("Split Channels");
@@ -125,10 +130,6 @@ for (n=0; n<list.length; n++) {
 	}
 	// Preprocessing for phase contrast
 	if (IMGtype == "RGB phase contrast L6 or C2C12") {
-		name = getTitle();
-		H=getHeight();
-		W=getWidth();
-		BS = Math.round(W/5);
 		nBS = Math.round(W/50);
 		rename("A");
 		// Saving the Inverted IMG
@@ -193,7 +194,7 @@ for (n=0; n<list.length; n++) {
 		setTool("multipoint");
 		run("Label Edition");		
 		// Put windows side by side
-		Xmix=screenWidth/2;
+		Xmix = screenWidth/2;
 		selectWindow("MixLabel");
 		setLocation(Xmix, 0);
 		selectWindow("Label Edition");
