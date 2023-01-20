@@ -41,6 +41,8 @@ To start TRUEFAD-Cells, do:
 
 You can try TRUEFAD-Cells on our example image located in the *TRUEFAD\example* folder. For this example you can use the default parameter values. After execution, you should find an Excel sheet on your Desktop storing the TRUEFAD-Cells metrics. 
 
+Be aware that TRUEFAD-Cells has been made for square images only so all input images will be automatically cropped to a square before treatement and the rest of the image will be ignored. 
+
 ### TRUEFAD-Histo
 
 To start TRUEFAD-Histo, do:
@@ -50,6 +52,8 @@ To start TRUEFAD-Histo, do:
 ## Deep learning model training
 
 This section is adressed to researchers who would like to get more details about our deep learning model training or who intend to reproduce the results presented in our publication.
+
+The deep learning model has been trained using ZeroCostDL4Mic [notebooks](https://github.com/HenriquesLab/ZeroCostDL4Mic/wiki). We provide a copy of both our training/validation datasets and our deep learning model obtained with ZeroCostDL4Mic in our [release tagged 'data&model'](https://github.com/AurBrun/TRUEFAD/releases/tag/data%26model). 
 
 ## Citation 
 
