@@ -4,6 +4,8 @@ Input image                |  TRUEFAD output
 :-------------------------:|:-------------------------:
 ![](dev/illustration.png)  |  ![](dev/illustration_output.png)
 
+![](dev/illustration.png)
+
 TRUEFAD is a composition of two FIJI/ImageJ macros designed for the analysis of two-dimensional images of muscle cells: TRUEFAD-Histo and TRUEFAD-Cells. TRUEFAD provides morpholigical metrics for phase contrast images of both myotubes (TRUEFAD-Cells) and laminin (TRUEFAD-Histo). 
 
 TRUEFAD-Cells relies on a U-Net deep learning model trained with ZeroCostDL4Mic online [notebooks](https://github.com/HenriquesLab/ZeroCostDL4Mic/wiki). 
