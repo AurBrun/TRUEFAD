@@ -23,7 +23,7 @@ To install the previous FIJI plugins, do:
 - Select *Close*
 - Select *Apply Changes*, wait for the install to finish and **restart FIJI/ImageJ**.
 
-You can now download TRUEFAD by clicking on this [link](https://github.com/AurBrun/TRUEFAD/archive/refs/heads/main.zip) (or by clicking on the green button above *<> Code* and then on *Download ZIP* or by using git and the following command: `git clone https://github.com/AurBrun/TRUEFAD.git`). Unzip the .ZIP file to your favorite location.
+You can now download TRUEFAD by clicking on this [link](https://github.com/AurBrun/TRUEFAD/archive/refs/heads/main.zip) (or by clicking on the green button above named "*<> Code*" and then on *Download ZIP* or by using git and the following command: `git clone https://github.com/AurBrun/TRUEFAD.git`). Unzip the .ZIP file to your favorite location.
 
 To use TRUEFAD-Cells, the trained deep learning model must be installed in DeepImageJ. The deep learning model is named `TRUEFAD Myotube detection.zip` in the folder you just unziped. To install the deep learning model you must then:
 - Open DeepImageJ installation plugin in FIJI/Imagej: select *Plugins > DeepImageJ > DeepImageJ Install Model*.
@@ -51,7 +51,7 @@ To start TRUEFAD-Histo, do:
 
 ## Deep learning model training
 
-This section is adressed to researchers who would like to get more details about our deep learning model training or who intend to reproduce the results presented in our publication.
+This section is adressed to developpers who would like to get more details about our deep learning model training or who intend to reproduce the results presented in our publication.
 
 The deep learning model has been trained using ZeroCostDL4Mic [notebooks](https://github.com/HenriquesLab/ZeroCostDL4Mic/wiki). We provide a copy of both our training/validation datasets and our deep learning model obtained with ZeroCostDL4Mic in our [release tagged 'data&model'](https://github.com/AurBrun/TRUEFAD/releases/tag/data%26model). 
 
