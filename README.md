@@ -1,6 +1,6 @@
 # TRUEFAD, TRUE Fiber Atrophy Distinction
 
-Input image                |  TRUEFAD output
+Input image                |  TRUEFAD-Cells output
 :-------------------------:|:-------------------------:
 ![](dev/illustration.png)  |  ![](dev/illustration_output.png)
 
