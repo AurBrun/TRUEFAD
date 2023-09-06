@@ -46,7 +46,7 @@ Input image                |  TRUEFAD-Cells output
 ![](dev/illustration.png)  |  ![](dev/illustration_output.png)
 
 To start TRUEFAD-Cells, do:
-- Drag and drop the `TRUEFAD-Cells DL - 24.08.22.ijm` file into FIJI. The FIJI macro editor should appear. 
+- Drag and drop the `TRUEFAD-Cells DL - 06.09.23.ijm` file into FIJI. The FIJI macro editor should appear. 
 - Click on the "Run" button.
 - After the "Requirement" window, select your own properties for the image preprocessing and segmentation as well as the myotube retention parameters
 - Select your first directory corresponding to your batch of images (you can go up to 1000 images)
