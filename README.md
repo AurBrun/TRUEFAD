@@ -1,14 +1,14 @@
 # TRUEFAD, TRUE Fiber Atrophy Distinction
 
-Input image                |  TRUEFAD-Cells output
-:-------------------------:|:-------------------------:
-![](dev/illustration.png)  |  ![](dev/illustration_output.png)
-
 TRUEFAD is a composition of two FIJI/ImageJ macros designed for the analysis of two-dimensional images of muscle cells: TRUEFAD-Histo and TRUEFAD-Cells. TRUEFAD provides morpholigical metrics for phase contrast images of both myotubes (TRUEFAD-Cells) and laminin (TRUEFAD-Histo). 
 
 TRUEFAD-Cells relies on a U-Net deep learning model trained with ZeroCostDL4Mic online [notebooks](https://github.com/HenriquesLab/ZeroCostDL4Mic/wiki). 
 
+![Figure 1 - TRUEFAD Cells workflow 14 12 22](https://github.com/AurBrun/TRUEFAD/assets/97951288/626bdd34-407c-485c-8d3e-4c356e98e946)
+
 TRUEFAD-Histo is a non-deep learning tool with comparable results on laminin segmentation with state-of-the-art deep learning methods such as Cellpose.
+
+![Figure 4 - TRUEFAD Histo workflow 25 01 23](https://github.com/AurBrun/TRUEFAD/assets/97951288/65ad8919-23a3-4c84-a6a9-a7cbe53308ce)
 
 ## Installation
 
@@ -37,10 +37,14 @@ To use TRUEFAD-Cells, the trained deep learning model must be installed in DeepI
 - Tick the box stating that *I accept to install the model...* (we promise that our model is safe to install :blush:) and select *Install*.
 
 ## Usage
-*Temporary step-by-step procedure is only available for now before publication, video tutorials will be accessible by the end of the year*
+![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png) *Temporary step-by-step procedure is only available for now before publication, video tutorials will be accessible by the end of the year*
 
 ### TRUEFAD-Cells 
- 
+
+Input image                |  TRUEFAD-Cells output
+:-------------------------:|:-------------------------:
+![](dev/illustration.png)  |  ![](dev/illustration_output.png)
+
 To start TRUEFAD-Cells, do:
 - Drag and drop the `TRUEFAD-Cells DL - 24.08.22.ijm` file into FIJI. The FIJI macro editor should appear. 
 - Click on the "Run" button.
