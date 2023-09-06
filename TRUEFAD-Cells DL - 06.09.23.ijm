@@ -1,6 +1,6 @@
 requires("1.53f");
 toolname = "TRUEFAD Cells";
-version = "V220823";
+version = "V060923";
 // Liste des lettres utilisés pour les itérations : n, a, u, m, k
 
 //    #############
@@ -119,6 +119,7 @@ for (n=0; n<list.length; n++) {
 	rename("A");
 	
 	// Run DeepImageJ with TRUEFAD myotube detection model on this 512x512Pix, and make directional filters
+	wait(SPD*400);
 	run("DeepImageJ Run", "model=[TRUEFAD Myotube detection] format=Tensorflow preprocessing=[per_sample_scale_range.ijm] postprocessing=[no postprocessing] axes=X,Y,C tile=512,512,1 logging=normal");
 	rename("B");
 	close("A");
