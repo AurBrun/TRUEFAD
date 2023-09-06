@@ -13,9 +13,10 @@ TRUEFAD-Histo is a non-deep learning tool with comparable results on laminin seg
 ## Installation
 
 Requirements:
-- Windows 10 (we did not try other OS so we cannot guarantee that TRUEFAD apps are going to work on those)
+- Windows 10 (Linux interoperability seems to be failing due to latency issues)
 - Up-to-date [FIJI/ImageJ2](https://imagej.net/software/fiji/downloads)
 - The following FIJI plugins:
+  - CSBDeep
   - DeepImageJ
   - MorphoLibJ
   - ReadAndWriteExcel 
@@ -23,7 +24,7 @@ Requirements:
 To install the previous FIJI plugins, do:
 - Select *Help>Update...*.
 - Select *Manage update sites*.
-- Tick *DeepImageJ*, *IJPB-plugins* and *ResultsToExcel*.
+- Tick *CSBDeep*, *DeepImageJ*, *IJPB-plugins* and *ResultsToExcel*.
 - Select *Close*
 - Select *Apply Changes*, wait for the install to finish and **restart FIJI/ImageJ**.
 
@@ -36,16 +37,22 @@ To use TRUEFAD-Cells, the trained deep learning model must be installed in DeepI
 - Tick the box stating that *I accept to install the model...* (we promise that our model is safe to install :blush:) and select *Install*.
 
 ## Usage
+*Temporary step-by-step procedure is only available for now before publication, video tutorials will be accessible by the end of the year*
 
-### TRUEFAD-Cells
-
+### TRUEFAD-Cells 
+ 
 To start TRUEFAD-Cells, do:
 - Drag and drop the `TRUEFAD-Cells DL - 24.08.22.ijm` file into FIJI. The FIJI macro editor should appear. 
-- Click on the "Run" button. 
+- Click on the "Run" button.
+- After the "Requirement" window, select your own properties for the image preprocessing and segmentation as well as the myotube retention parameters
+- Select your first directory corresponding to your batch of images (you can go up to 1000 images)
+- Select another directory for results export
 
-You can try TRUEFAD-Cells on our example image located in the *TRUEFAD\example* folder. For this example you can use the default parameter values. After execution, you should find an Excel sheet on your Desktop storing the TRUEFAD-Cells metrics. 
+You can try TRUEFAD-Cells on our example image located in the *TRUEFAD\example* folder. For this example, you can use the default parameter values. After execution, you should find an Excel sheet on your Desktop storing the TRUEFAD-Cells metrics. 
 
-Be aware that TRUEFAD-Cells has been made for square images only so all input images will be automatically cropped to a square before treatement and the rest of the image will be ignored. 
+Be aware that TRUEFAD-Cells has been made for square images only so all input images will be automatically cropped to a square before treatment and the rest of the image will be ignored.
+
+We recommend using grey scale 8-BIT images captured on positive phase contrast with x10 magnification of around 2000x2000 pixel resolution
 
 ### TRUEFAD-Histo
 
@@ -55,12 +62,12 @@ To start TRUEFAD-Histo, do:
 
 ## Deep learning model training
 
-This section is adressed to developpers who would like to get more details about our deep learning model training or who intend to reproduce the results presented in our publication. This section is thus not needed for users only.
+This section is addressed to developers who would like to get more details about our deep learning model training or who intend to reproduce the results presented in our publication. This section is thus not needed for users only.
 
 The deep learning model has been trained using ZeroCostDL4Mic [notebooks](https://github.com/HenriquesLab/ZeroCostDL4Mic/wiki). We provide a copy of both our training/validation datasets and our deep learning model obtained with ZeroCostDL4Mic in our [release tagged 'data&model'](https://github.com/AurBrun/TRUEFAD/releases/tag/data%26model). As the notebooks may change on the ZeroCostDL4Mic website, we also provide in the `dev` folder the original `.ipynb` notebook we used to train our deep learning model. 
 
 ## Citation 
 
-Writing in progress...
+Publication under review ...
 
 ## Acknowledgments and Funding
