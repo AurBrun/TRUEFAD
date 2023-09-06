@@ -61,7 +61,7 @@ We recommend using grey scale 8-BIT images captured on positive phase contrast w
 ### TRUEFAD-Histo
 
 To start TRUEFAD-Histo, do:
-- Drag and drop the `TRUEFAD-Histo V1.4 - 04.05.22.ijm` file into FIJI. The FIJI macro editor should appear. 
+- Drag and drop the `TRUEFAD-Histo V1.5 - 06.09.23.ijm` file into FIJI. The FIJI macro editor should appear. 
 - Click on the "Run" button. 
 
 ## Deep learning model training
