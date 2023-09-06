@@ -1,6 +1,6 @@
 requires("1.53f");
 toolname = "ImageJ-TRUEFAD Histo";
-version = "V1.4";
+version = "V1.5";
 	
 // Dialogs
 //Dependancies
@@ -130,14 +130,14 @@ if (MainPipeline == 1) {
 	Dialog.create(toolname + "-" + version + "-Step1");
 		Dialog.addMessage("Macro started, you will have to select path to your \"8-BIT\" raw fluorescence images folder");
 		Dialog.show();
-		dir1 = getDir("Choose your cell border directory (=Laminin)");
+		dir1 = getDir("Choose your cell border directory (=Laminin/Dystrophin)");
 		listBorder = getFileList(dir1);
 		dir2 = getDir("Select your Type1 directory (=BAF8)");
 		listType1 = getFileList(dir2);
 		dir3 = getDir("Also your Type2A directory (=SC71)");
 		listType2A = getFileList(dir3);
 	if (Type4 == 1) {
-		dir4 = getDir("Finally your Type2B/X directory (=SC71)");
+		dir4 = getDir("Finally your Type2B/2X directory");
 		listType2B = getFileList(dir4);
 		};
 	//Step2
@@ -440,13 +440,14 @@ if (MainPipeline == 1) {
 		run("Set Scale...", "distance=umScale known=1 unit=µm");
 		run("Analyze Particles...", "size=0.01-Infinity circularity=0.20-1.00 clear add");
 		rename("BinaryMask");
-		run("Set Measurements...", "area perimeter shape redirect=None decimal=3");
+		run("Set Measurements...", "area perimeter shape feret's redirect=None decimal=3");
 		roiManager("Measure");
 		selectWindow("Results");
 		Area = Table.getColumn("Area");
 		Perimeter = Table.getColumn("Perim.");
 		Circularity = Table.getColumn("Circ.");
 		Roundness = Table.getColumn("Round");
+		Feret = Table.getColumn("MinFeret");
 		if(ROISaving == 1)
 		{
 		roiManager("Save",Output+name+".zip");
@@ -478,7 +479,7 @@ if (MainPipeline == 1) {
 			selectWindow("Results");
 			Type2B = Table.getColumn("Mean");
 			// Sum up everything and write an Excel Speadsheet for T1vsT2AvsT2B/X
-			Table.showArrays("Measures", Area, Perimeter, Circularity, Roundness, Type1, Type2A, Type2B);
+			Table.showArrays("Measures", Area, Perimeter, Feret, Circularity, Roundness, Type1, Type2A, Type2B);
 			Table.rename("Measures", "Results");
 			run("Read and Write Excel", "dataset_label="+name);
 			// Make the Composite with area of each cell and save it
@@ -506,7 +507,7 @@ if (MainPipeline == 1) {
 		}
 		if (Type4 == 0) {
 			// Sum up everything and write an Excel Speadsheet
-			Table.showArrays("Measures", Area, Perimeter, Circularity, Roundness, Type1, Type2A);
+			Table.showArrays("Measures", Area, Perimeter, Feret, Circularity, Roundness, Type1, Type2A);
 			Table.rename("Measures", "Results");
 			// Establish the probability for typing
 			for (i = 0; i < Type1.length; i++)
