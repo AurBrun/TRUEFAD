@@ -1,6 +1,6 @@
 requires("1.53f");
 toolname = "ImageJ-TRUEFAD Histo";
-version = "V1.5";
+version = "V1.6";
 	
 // Dialogs
 //Dependancies
