@@ -62,7 +62,7 @@ We recommend using grey scale 8-BIT images captured on positive phase contrast w
 
 To start TRUEFAD-Histo, do:
 - The first step is to create on your computer one folder for each fluorescence channel, depending on the type of analysis to be carried out (see choices below). For example, if laminin, BAF8 and SC71 fluorescence are going to be analyzed, you need 3 distinct folders containing the corresponding 8-BIT single channel image with exactly the same filename per original field (ex « sample1.tif » in folder laminin/dystrophin, « sample1.tif » in folder BAF8, and « sample1.tif » in folder SC71). Only 8-BIT image files to be analyzed should be found in folders. An additional empty folder must be created for result files. In the following procedure and current version of TRUEFAD, the default fluorescence is laminin for fiber segmentation, BAF8 for type I and SC71 for type IIA labeling respectively (other labeling depending on your protocol should be tested, and could be used instead). 
-- Drag and drop the `TRUEFAD-Histo V1.5 - 06.09.23.ijm` file into FIJI. The FIJI macro editor should appear. 
+- Drag and drop the `TRUEFAD-Histo V1.6 - 30.10.23.ijm` file into FIJI. The FIJI macro editor should appear. 
 - Click on the "Run" button. 
 - Four options are available, depending on the objective of the analysis (see the main manuscript for further details) :
   •	« Import and work on label image » to work on a previously processed label map.
