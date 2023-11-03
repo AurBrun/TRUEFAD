@@ -157,9 +157,11 @@ if (MainPipeline == 1) {
 		Dialog.addMessage("Select the upper threshold attributed to the Type 2a");
 		Dialog.addNumber("The Type2a range from [-1 to Y]", -0.2);
 		Dialog.addMessage("Type 2b range between Y and X");
+		Dialog.addCheckbox("Detect putative hybrid fibers", false);
 		Dialog.show();
 		Type1THR = Dialog.getNumber();
 		Type2aTHR = Dialog.getNumber();
+		Hybrid = Dialog.getCheckbox();
 	};
 	if (Type4 == 1) {
 	//Step3.ThreeFibers
@@ -192,7 +194,7 @@ if (MainPipeline == 1) {
 		Dialog.addNumber("Set scale (number of pixels/µm)", 1);	
 		Dialog.addMessage("Rate the performance of your machine. Plugin will take it in consideration for the processing speed");
 		Dialog.addSlider("Slow (1) to Fast (5)", 1, 5, 2);
-		Dialog.addCheckbox("Enable batch mode", true);
+		Dialog.addCheckbox("Enable batch mode [require powerful configuration]", false);
 		Dialog.show();
 		Type1Boost = Dialog.getNumber();
 		Type2aBoost = Dialog.getNumber();
@@ -363,19 +365,22 @@ if (MainPipeline == 1) {
 		Table.rename("Labels-GeodDiameters", "Results");
 		wait(SPD*100);
 		run("Assign Measure to Label", "Results=Results column=GeodesicElongation min=1 max=MAXell");
-		wait(SPD*100);
+		wait(SPD*200);
 		setOption("ScaleConversions", true);
 		// Create a mask
 		run("8-bit");
 		setAutoThreshold("Otsu dark");
 		run("Threshold...");
 		setThreshold(1, 254);
+		wait(SPD*100);
 		run("Convert to Mask");
+		wait(SPD*100);
 		rename("Temp");
 		run("Morphological Filters", "operation=Erosion element=Disk radius=Erosion");
 		rename("Temp-E");
 		close("Labels");
 		run("Connected Components Labeling", "connectivity=4 type=float");
+		wait(SPD*100);
 		run("Set Label Map", "colormap=Spectrum background=Black shuffle");
 		rename("Labels");
 		close("Labels-GeodesicElongation");
@@ -435,10 +440,13 @@ if (MainPipeline == 1) {
 		setAutoThreshold("Otsu dark");
 		run("Threshold...");
 		setThreshold(1, 254);
+		wait(SPD*100);
 		run("Convert to Mask");
+		wait(SPD*100);
 		// Import the mask to the ROI Manager and measure Area and perimeter
 		run("Set Scale...", "distance=umScale known=1 unit=µm");
 		run("Analyze Particles...", "size=0.01-Infinity circularity=0.20-1.00 clear add");
+		wait(SPD*100);
 		rename("BinaryMask");
 		run("Set Measurements...", "area perimeter shape feret's redirect=None decimal=3");
 		roiManager("Measure");
@@ -459,7 +467,9 @@ if (MainPipeline == 1) {
 		selectWindow("Stack");
 		run("Next Slice [>]");
 		roiManager("Show All");
+		wait(SPD*100);
 		roiManager("Measure");
+		wait(SPD*100);
 		selectWindow("Results");
 		Type1 = Table.getColumn("Mean");
 		close("Results");
@@ -467,7 +477,9 @@ if (MainPipeline == 1) {
 		selectWindow("Stack");
 		run("Next Slice [>]");
 		roiManager("Show All");
+		wait(SPD*100);
 		roiManager("Measure");
+		wait(SPD*100);
 		selectWindow("Results");
 		Type2A = Table.getColumn("Mean");
 		if (Type4 == 1) {
@@ -531,9 +543,10 @@ if (MainPipeline == 1) {
 					LabelValue = 2;
 					Type = "Type2B/X";	
 				}
-				if((LabelValue==2) & (c>Type1THR) & (d<Type2aTHR)){ 
-				LabelValue = 3;
-				Type = "Hybrid";
+				if(Hybrid == 1){
+					if((LabelValue==2) & (c>Type1THR) & (d<Type2aTHR)){ 
+						LabelValue = "Hybrid?";
+					}
 				}
 				Table.set("Probability", i, Delta);
 				Table.set("Type", i, Type);
@@ -680,4 +693,3 @@ if (UserChoice == "Segmentation of laminin image") {
 showMessage("TRUEFAD-histo has now finished the job!");
 showMessage("Please find on your desktop and directories all the datas and IMGs obtained");
 showMessage("Have a nice day! - Code written by Aurelien BRUN - ASMS Clermont-Ferrand");
-
