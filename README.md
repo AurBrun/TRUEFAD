@@ -1,7 +1,8 @@
 # TRUEFAD, TRUE Fiber Atrophy Distinction
-# | Video presentation |
+# | Video presentation | ![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png)
 [![](https://github.com/AurBrun/TRUEFAD/blob/main/dev/Thumbnail.png?raw=true)](https://www.youtube.com/watch?v=CX9Syk-ChI0&)
 
+## Description
 TRUEFAD is a composition of two FIJI/ImageJ macros designed for the analysis of two-dimensional images of muscle cells: TRUEFAD-Histo and TRUEFAD-Cells. TRUEFAD provides morpholigical metrics for phase contrast images of both myotubes (TRUEFAD-Cells) and laminin (TRUEFAD-Histo). 
 
 TRUEFAD-Cells relies on a U-Net deep learning model trained with ZeroCostDL4Mic online [notebooks](https://github.com/HenriquesLab/ZeroCostDL4Mic/wiki). 
@@ -39,8 +40,6 @@ To use TRUEFAD-Cells, the trained deep learning model must be installed in DeepI
 - Tick the box stating that *I accept to install the model...* (we promise that our model is safe to install :blush:) and select *Install*.
 
 ## Usage
-![#f03c15](https://placehold.co/15x15/f03c15/f03c15.png) *Temporary step-by-step procedure is only available for now before publication, video tutorials will be accessible by the end of the year*
-
 ### TRUEFAD-Cells 
 
 Input image                |  TRUEFAD-Cells output
