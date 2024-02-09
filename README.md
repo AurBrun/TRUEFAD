@@ -3,7 +3,7 @@
 [![](https://github.com/AurBrun/TRUEFAD/blob/main/dev/Thumbnail.png?raw=true)](https://www.youtube.com/watch?v=CX9Syk-ChI0&)
 
 ## Description
-TRUEFAD is a composition of two FIJI/ImageJ macros designed for the analysis of two-dimensional images of muscle cells: TRUEFAD-Histo and TRUEFAD-Cells. TRUEFAD provides morpholigical metrics for phase contrast images of both myotubes (TRUEFAD-Cells) and laminin (TRUEFAD-Histo). 
+TRUEFAD is a composition of two FIJI/ImageJ macros designed to analyze two-dimensional images of muscle cells: TRUEFAD-Histo and TRUEFAD-Cells. TRUEFAD  allows the automatization of morphological measurements from phase contrast images of myotubes (TRUEFAD-Cells) and fluorescent laminin-dystrophin images of muscle cross sections (TRUEFAD-Histo). 
 
 TRUEFAD-Cells relies on a U-Net deep learning model trained with ZeroCostDL4Mic online [notebooks](https://github.com/HenriquesLab/ZeroCostDL4Mic/wiki). 
 
@@ -21,22 +21,25 @@ Requirements:
 - The following FIJI plugins:
   - CSBDeep
   - DeepImageJ
-  - MorphoLibJ
-  - ReadAndWriteExcel 
+  - IJPB plugins
+  - ReadAndWriteExcel
+  - Tensorflow 
   
-To install the previous FIJI plugins, do:
+To install the previous FIJI plugins, do the following:
 - Select *Help>Update...*.
 - Select *Manage update sites*.
-- Tick *CSBDeep*, *DeepImageJ*, *IJPB-plugins* and *ResultsToExcel*.
+- Tick *CSBDeep*, *DeepImageJ*, *IJPB-plugins*, *ResultsToExcel*, and *TensorFlow*.
 - Select *Close*
-- Select *Apply Changes*, wait for the install to finish and **restart FIJI/ImageJ**.
+- Select *Apply Changes*, wait for the install to finish
+- Go to Edit > Options > TensorFlow and install the CPU version that is equal or above 1.15
+- **Restart FIJI/ImageJ**.
 
 You can now download TRUEFAD by clicking on this [link](https://github.com/AurBrun/TRUEFAD/archive/refs/heads/main.zip) (or by clicking on the green button above named "*<> Code*" and then on *Download ZIP* or by using git and the following command: `git clone https://github.com/AurBrun/TRUEFAD.git`). Unzip the .ZIP file to your favorite location.
 
 To use TRUEFAD-Cells, the trained deep learning model must be installed in DeepImageJ. The deep learning model is named `TRUEFAD Myotube detection.zip` in the folder you just unziped. To install the deep learning model you must then:
 - Open DeepImageJ installation plugin in FIJI/Imagej: select *Plugins > DeepImageJ > DeepImageJ Install Model*.
 - In the DeepImageJ interface, select *Private Model* tab.
-- Tick *From ZIP file* and fill the blank with the path of the your `TRUEFAD Myotube detection.zip` model. For example: `D:\TRUEFAD\TRUEFAD Myotube detection.zip`.
+- Tick *From ZIP file* and fill the blank with the path of your `TRUEFAD Myotube detection.zip` model. For example: `D:\TRUEFAD\TRUEFAD Myotube detection.zip`.
 - Tick the box stating that *I accept to install the model...* (we promise that our model is safe to install :blush:) and select *Install*.
 
 ## Usage
@@ -78,7 +81,7 @@ To start TRUEFAD-Histo, do:
    •	"Directional median filter": Use MorpholibJ directional median filters to close laminin gaps and heterogeneity of fiber borders signal (more = more corrections and more artifacts)
    •	"Tolerance": Parameter used for watershed extended minima-based segmentation (see Morphological segmentation https://imagej.net/plugins/morpholibj)
    •	"Min/Max label area" "Label maximum elongation" "Label Erosion": These criteria define the label retention to obtain definitive muscle fiber
-   •	"Manually edit label post filtering": This tickbox allows the user to switch from a fully automatic analysis to a semi-auto analysis with a GUI designed to help the user remove non desired label
+   •	"Manually edit label post-filtering": This tickbox allows the user to switch from a fully automatic analysis to a semi-auto analysis with a GUI designed to help the user remove non desired label
    •	"Save automatically label map / ROIs"
    •  "Set scale (pix/µm)": Needs to be adapted to the image resolution to allow label filtering
    •  "Rate the performance of your machine": This highly subjective parameter creates artificial delays inversely proportionate to your grading of your machine's performance to let the time for Java and some plugins to load correctly in FIJI.
