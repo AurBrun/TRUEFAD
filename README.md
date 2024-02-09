@@ -1,7 +1,7 @@
 # TRUEFAD, TRUE Fiber Atrophy Distinction
 | Video presentation |
 |:-:|
-| [![](https://github.com/AurBrun/TRUEFAD/blob/main/dev/Thumbnail.png?raw=true)](https://youtu.be/CX9Syk-ChI0) |(https://youtu.be/CX9Syk-ChI0)
+| [![](https://github.com/AurBrun/TRUEFAD/blob/main/dev/Thumbnail.png?raw=true)](https://youtu.be/CX9Syk-ChI0) |(https://youtu.be/CX9Syk-ChI0?si=RuCof5taTXirswGZ)
 
 TRUEFAD is a composition of two FIJI/ImageJ macros designed for the analysis of two-dimensional images of muscle cells: TRUEFAD-Histo and TRUEFAD-Cells. TRUEFAD provides morpholigical metrics for phase contrast images of both myotubes (TRUEFAD-Cells) and laminin (TRUEFAD-Histo). 
 
