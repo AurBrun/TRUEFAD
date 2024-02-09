@@ -1,5 +1,5 @@
 # TRUEFAD, TRUE Fiber Atrophy Distinction
-#| Video presentation |
+# | Video presentation |
 |:-:|
 | [![](https://github.com/AurBrun/TRUEFAD/blob/main/dev/Thumbnail.png?raw=true)](https://www.youtube.com/watch?v=CX9Syk-ChI0&)|
 
