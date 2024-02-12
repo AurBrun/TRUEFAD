@@ -1,5 +1,7 @@
-# TRUEFAD, TRUE Fiber Atrophy Distinction (last update 12FEB24)
-# | Video presentation |
+# TRUEFAD, TRUE Fiber Atrophy Distinction
+Last update: 12FEB24
+
+# | Youtube video presentation & tutorial |
 [![](https://github.com/AurBrun/TRUEFAD/blob/main/dev/Thumbnail.png?raw=true)](https://youtu.be/4vMrz28spzo)
 
 ## Description
@@ -52,10 +54,20 @@ Input image                |  TRUEFAD-Cells output
 To start TRUEFAD-Cells, do:
 - Drag and drop the `TRUEFAD-Cells DL - 06.09.23.ijm` file into FIJI. The FIJI macro editor should appear. 
 - Click on the "Run" button.
-- After the "Requirement" window, select your own properties for the image preprocessing and segmentation as well as the myotube retention parameters
+- After the "Requirement" window, select your properties for the image preprocessing and segmentation as well as the myotube retention parameters:
+   •	"Rate the performance of your machine": This highly subjective parameter creates artificial delays inversely proportionate to the grading of your machine's performance to let the time for Java and some plugins load correctly in FIJI.
+   •	"Border siding the DL prediction": This is the number of pixels that the thresholded prediction will be enlarged to run the subsequent filters
+   •	"Remove noise on myotube prediction": Decrease this parameter to increase the noise that is on the rest of the image that is not a prediction (noise prevents watershed from creating false myotubes in a non-prediction area) 
+   •	"Segmentation tolerance": Parameter used for watershed extended minima-based segmentation (see Morphological segmentation https://imagej.net/plugins/morpholibj)
+   •  "Set scale (pix/µm)": Needs to be adapted to the image resolution to allow label filtering  
+   •	"Min/Max label area" and "Label maximum elongation": These criteria define the label retention to obtain definitive myotubes
+   •	"Detailed measures": Export each of the nine diameter measurements for each myotube detected in the Excel file instead of the mean diameter
 - Select your first directory corresponding to your batch of images (you can go up to 1000 images)
 - Select another directory for results export
-
+### Macro should be starting ###
+- At the end of the analysis, a few windows open, please click on « ok » for each.
+- Results (Label JPG image, ROI zip folder) could be found in the "Result" path previously selected by the user. A detailed quantified output could be found as an Excel file "rename me after writing is done" saved on the computer desktop according to the Read&WriteExcel plugin.
+-We recommend checking all images for consistency in segmentation. If not, rerun TRUEFAD with different settings.
 You can try TRUEFAD-Cells on our example image located in the *TRUEFAD\example* folder. For this example, you can use the default parameter values. After execution, you should find an Excel sheet on your Desktop storing the TRUEFAD-Cells metrics. 
 
 Be aware that TRUEFAD-Cells has been made for square images only so all input images will be automatically cropped to a square before treatment and the rest of the image will be ignored.
@@ -65,30 +77,30 @@ We recommend using grey scale 8-BIT images captured on positive phase contrast w
 ### TRUEFAD-Histo
 
 To start TRUEFAD-Histo, do:
-- The first step is to create on your computer one folder for each fluorescence channel, depending on the type of analysis to be carried out (see choices below). For example, if laminin, BAF8 and SC71 fluorescence are going to be analyzed, you need 3 distinct folders containing the corresponding 8-BIT single channel image with exactly the same filename per original field (ex « sample1.tif » in folder laminin/dystrophin, « sample1.tif » in folder BAF8, and « sample1.tif » in folder SC71). Only 8-BIT image files to be analyzed should be found in folders. An additional empty folder must be created for result files. In the following procedure and current version of TRUEFAD, the default fluorescence is laminin for fiber segmentation, BAF8 for type I and SC71 for type IIA labeling respectively (other labeling depending on your protocol should be tested, and could be used instead). 
+- The first step is to create on your computer one folder for each fluorescence channel, depending on the type of analysis to be carried out (see choices below). For example, if laminin, BAF8, and SC71 fluorescence are going to be analyzed, you need 3 distinct folders containing the corresponding 8-BIT single channel image with the same filename per original field (ex « sample1.tif » in folder laminin/dystrophin, « sample1.tif » in folder BAF8, and « sample1.tif » in folder SC71). Only 8-BIT image files to be analyzed should be found in folders. An additional empty folder must be created for result files. In the following procedure and current version of TRUEFAD, the default fluorescence is laminin for fiber segmentation, BAF8 for type I, and SC71 for type IIA labeling respectively (other labeling depending on your protocol should be tested, and could be used instead). 
 - Drag and drop the `TRUEFAD-Histo V1.6 - 30.10.23.ijm` file into FIJI. The FIJI macro editor should appear. 
 - Click on the "Run" button. 
 - Four options are available, depending on the objective of the analysis (see the main manuscript for further details) :
   •	« Import and work on label image » to work on a previously processed label map.
   •	« Segmentation of laminin image » to segment fibers using laminin (or other). In this case, only one folder is necessary. 
   •	« Type attribution Laminin+Type1+Type2A ». Includes segmentation + labeling of type I and type IIA fibers (as explained in the manuscript).
-  •	« Type attribution Laminin+Type1+Type2A(+Type2X). Includes segmentation + fiber typing using 3 or 4 labeling in the same pipeline.
-- You will get successively several windows to select the paths for the folders corresponding to each labeling (laminin, BAF8 and SC71 following the order specified in the name of the windows).
-- Step 3: It is here possible to adjust the probability threshold to assign fiber to type I or IIA. We recommend keeping the default parameter but adjustments may be necessary depending on the quality of the image acquisition. Few images from a batch may be firstly checked manually using a different threshold and rerun TRUEFAD.
+  •	« Type attribution Laminin+Type1+Type2A(+Type2X). Includes segmentation + intensity measurement of each fluorescence 3 different channels in the same pipeline.
+- You will get several windows to select the paths for the folders corresponding to each labeling (laminin, BAF8, and SC71 following the order specified in the name of the windows).
+- Step 3: It is here possible to adjust the probability threshold to assign fiber to type I or IIA. We recommend that you keep the default parameter but adjustments may be necessary depending on the quality of the image acquisition. A few images from a batch may be firstly checked manually using a different threshold and rerun TRUEFAD.
 - Step 4: Different parameters can be adapted here to adjust the resulting segmentation, fiber retention, and results export
    •	"Boost Type I" or "Boost Type IIA": To increase artificially the signal contrast of the respective fluorescence channel
    •	"Artificially enhance edges": To use systematically the "Find edges" FIJI filter to artificially enhance laminin/dystrophin contrast
    •	"Directional median filter": Use MorpholibJ directional median filters to close laminin gaps and heterogeneity of fiber borders signal (more = more corrections and more artifacts)
    •	"Tolerance": Parameter used for watershed extended minima-based segmentation (see Morphological segmentation https://imagej.net/plugins/morpholibj)
-   •	"Min/Max label area" "Label maximum elongation" "Label Erosion": These criteria define the label retention to obtain definitive muscle fiber
-   •	"Manually edit label post-filtering": This tickbox allows the user to switch from a fully automatic analysis to a semi-auto analysis with a GUI designed to help the user remove non desired label
+   •	"Min/Max label area" "Label maximum elongation" and "Label Erosion": These criteria define the label retention to obtain definitive muscle fiber
+   •	"Manually edit label post-filtering": This tickbox allows the user to switch from a fully automatic analysis to a semi-auto analysis with a GUI designed to help the user remove non-desired labels
    •	"Save automatically label map / ROIs"
    •  "Set scale (pix/µm)": Needs to be adapted to the image resolution to allow label filtering
-   •  "Rate the performance of your machine": This highly subjective parameter creates artificial delays inversely proportionate to your grading of your machine's performance to let the time for Java and some plugins to load correctly in FIJI.
-  • "Enable batch mode": Tick to let the plugin run in silent mode or untick to show each step of the image processing
+   •  "Rate the performance of your machine": This highly subjective parameter creates artificial delays inversely proportionate to the grading of your machine's performance to let the time for Java and some plugins load correctly in FIJI.
+   • "Enable batch mode": Tick to let the plugin run in silent mode (not recommended) or untick to show each step of the image processing
 ### Macro should be starting ###
 - At the end of the analysis, a few windows open, please click on « ok » for each.
-- Results (TIF label map, Composite JPG image, ROI zip folder) could be found in the "Result" path previously selected by the user. A detailed quantified output could be found as an excel file "rename me after writing is done" saved on the computer desktop according to Read&WriteExcel plugin.
+- Results (TIF label map, Composite JPG image, ROI zip folder) could be found in the "Result" path previously selected by the user. A detailed quantified output could be found as an Excel file "rename me after writing is done" saved on the computer desktop according to the Read&WriteExcel plugin.
 -We recommend checking all images for consistency in segmentation and fiber type identification. If not, rerun TRUEFAD with different settings.
   
 ## Deep learning model training
@@ -97,7 +109,7 @@ This section is addressed to developers who would like to get more details about
 
 The deep learning model has been trained using ZeroCostDL4Mic [notebooks](https://github.com/HenriquesLab/ZeroCostDL4Mic/wiki). We provide a copy of both our training/validation datasets and our deep learning model obtained with ZeroCostDL4Mic in our [release tagged 'data&model'](https://github.com/AurBrun/TRUEFAD/releases/tag/data%26model). As the notebooks may change on the ZeroCostDL4Mic website, we also provide in the `dev` folder the original `.ipynb` notebook we used to train our deep learning model. 
 
-## Citation 
+## Citation - Please cite our work if it contributed to your research
 The original TRUEFAD publication is accessible on : https://www.nature.com/articles/s41598-024-53658-0 
 Brun, A., Mougeot, G., Denis, P. et al. A new bio imagery user-friendly tool for automatic morphometry measurement on muscle cell cultures and histological sections. Sci Rep 14, 3108 (2024). https://doi.org/10.1038/s41598-024-53658-0
 
