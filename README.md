@@ -55,13 +55,13 @@ To start TRUEFAD-Cells, do:
 - Drag and drop the `TRUEFAD-Cells DL - 06.09.23.ijm` file into FIJI. The FIJI macro editor should appear. 
 - Click on the "Run" button.
 - After the "Requirement" window, select your properties for the image preprocessing and segmentation as well as the myotube retention parameters:
-  •	"Rate the performance of your machine": This highly subjective parameter creates artificial delays inversely proportionate to the grading of your machine's performance to let the time for Java and some plugins load correctly in FIJI.
-  •	"Border siding the DL prediction": This is the number of pixels that the thresholded prediction will be enlarged to run the subsequent filters
-  •	"Remove noise on myotube prediction": Decrease this parameter to increase the noise that is on the rest of the image that is not a prediction (noise prevents watershed from creating false myotubes in a non-prediction area).
-  •	"Segmentation tolerance": Parameter used for watershed extended minima-based segmentation (see Morphological segmentation https://imagej.net/plugins/morpholibj).
-  •	"Set scale (pix/µm)": Needs to be adapted to the image resolution to allow label filtering.
-  •	"Min/Max label area" and "Label maximum elongation": These criteria define the label retention to obtain definitive myotubes.
-  •	"Detailed measures": Export each of the nine diameter measurements for each myotube detected in the Excel file instead of the mean diameter
+> "Rate the performance of your machine": This highly subjective parameter creates artificial delays inversely proportionate to the grading of your machine's performance to let the time for Java and some plugins load correctly in FIJI.
+> "Border siding the DL prediction": This is the number of pixels that the thresholded prediction will be enlarged to run the subsequent filters
+> "Remove noise on myotube prediction": Decrease this parameter to increase the noise on the rest of the image that is not a prediction (noise prevents watershed from creating false myotubes in a non-prediction area).
+> "Segmentation tolerance": Parameter used for watershed extended minima-based segmentation (see Morphological segmentation https://imagej.net/plugins/morpholibj).
+> "Set scale (pix/µm)": Needs to be adapted to the image resolution to allow label filtering.
+> "Min/Max label area" and "Label maximum elongation": These criteria define the label retention to obtain definitive myotubes.
+> "Detailed measures": Export each of the nine diameter measurements for each myotube detected in the Excel file instead of the mean diameter
 - Select your first directory corresponding to your batch of images (you can go up to 1000 images)
 - Select another directory for results export
 ### Macro should be starting ###
