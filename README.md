@@ -88,16 +88,16 @@ To start TRUEFAD-Histo, do:
 - You will get several windows to select the paths for the folders corresponding to each labeling (laminin, BAF8, and SC71 following the order specified in the name of the windows).
 - Step 3: It is here possible to adjust the probability threshold to assign fiber to type I or IIA. We recommend that you keep the default parameter but adjustments may be necessary depending on the quality of the image acquisition. A few images from a batch may be firstly checked manually using a different threshold and rerun TRUEFAD.
 - Step 4: Different parameters can be adapted here to adjust the resulting segmentation, fiber retention, and results export
-   •	"Boost Type I" or "Boost Type IIA": To increase artificially the signal contrast of the respective fluorescence channel
-   •	"Artificially enhance edges": To use systematically the "Find edges" FIJI filter to artificially enhance laminin/dystrophin contrast
-   •	"Directional median filter": Use MorpholibJ directional median filters to close laminin gaps and heterogeneity of fiber borders signal (more = more corrections and more artifacts)
-   •	"Tolerance": Parameter used for watershed extended minima-based segmentation (see Morphological segmentation https://imagej.net/plugins/morpholibj)
-   •	"Min/Max label area" "Label maximum elongation" and "Label Erosion": These criteria define the label retention to obtain definitive muscle fiber
-   •	"Manually edit label post-filtering": This tickbox allows the user to switch from a fully automatic analysis to a semi-auto analysis with a GUI designed to help the user remove non-desired labels
-   •	"Save automatically label map / ROIs"
-   •  "Set scale (pix/µm)": Needs to be adapted to the image resolution to allow label filtering
-   •  "Rate the performance of your machine": This highly subjective parameter creates artificial delays inversely proportionate to the grading of your machine's performance to let the time for Java and some plugins load correctly in FIJI.
-   • "Enable batch mode": Tick to let the plugin run in silent mode (not recommended) or untick to show each step of the image processing
+  - "Boost Type I" or "Boost Type IIA": To increase artificially the signal contrast of the respective fluorescence channel
+  - "Artificially enhance edges": To use systematically the "Find edges" FIJI filter to artificially enhance laminin/dystrophin contrast
+  - "Directional median filter": Use MorpholibJ directional median filters to close laminin gaps and heterogeneity of fiber borders signal (more = more corrections and more artifacts)
+  - "Tolerance": Parameter used for watershed extended minima-based segmentation (see Morphological segmentation https://imagej.net/plugins/morpholibj)
+  - "Min/Max label area" "Label maximum elongation" and "Label Erosion": These criteria define the label retention to obtain definitive muscle fiber
+  - "Manually edit label post-filtering": This tickbox allows the user to switch from a fully automatic analysis to a semi-auto analysis with a GUI designed to help the user remove non-desired labels
+  - "Save automatically label map / ROIs"
+  - "Set scale (pix/µm)": Needs to be adapted to the image resolution to allow label filtering
+  - "Rate the performance of your machine": This highly subjective parameter creates artificial delays inversely proportionate to the grading of your machine's performance to let the time for Java and some plugins load correctly in FIJI.
+  - "Enable batch mode": Tick to let the plugin run in silent mode (not recommended) or untick to show each step of the image processing
 ### Macro should be starting ###
 - At the end of the analysis, a few windows open, please click on « ok » for each.
 - Results (TIF label map, Composite JPG image, ROI zip folder) could be found in the "Result" path previously selected by the user. A detailed quantified output could be found as an Excel file "rename me after writing is done" saved on the computer desktop according to the Read&WriteExcel plugin.
