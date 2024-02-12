@@ -1,9 +1,9 @@
-# TRUEFAD, TRUE Fiber Atrophy Distinction
+# TRUEFAD, TRUE Fiber Atrophy Distinction (last update 12FEB24)
 # | Video presentation |
-[![](https://github.com/AurBrun/TRUEFAD/blob/main/dev/Thumbnail.png?raw=true)](https://www.youtube.com/watch?v=CX9Syk-ChI0&)
+[![](https://github.com/AurBrun/TRUEFAD/blob/main/dev/Thumbnail.png?raw=true)](https://youtu.be/4vMrz28spzo)
 
 ## Description
-TRUEFAD is a composition of two FIJI/ImageJ macros designed to analyze two-dimensional images of muscle cells: TRUEFAD-Histo and TRUEFAD-Cells. TRUEFAD  allows the automatization of morphological measurements from phase contrast images of myotubes (TRUEFAD-Cells) and fluorescent laminin-dystrophin images of muscle cross sections (TRUEFAD-Histo). 
+TRUEFAD is a composition of two FIJI/ImageJ macros designed to analyze two-dimensional images of muscle cells: TRUEFAD-Histo and TRUEFAD-Cells. TRUEFAD allows the automatization of morphological measurements from phase contrast images of myotubes (TRUEFAD-Cells) and fluorescent laminin-dystrophin images of muscle cross sections (TRUEFAD-Histo). 
 
 TRUEFAD-Cells relies on a U-Net deep learning model trained with ZeroCostDL4Mic online [notebooks](https://github.com/HenriquesLab/ZeroCostDL4Mic/wiki). 
 
@@ -39,7 +39,7 @@ You can now download TRUEFAD by clicking on this [link](https://github.com/AurBr
 To use TRUEFAD-Cells, the trained deep learning model must be installed in DeepImageJ. The deep learning model is named `TRUEFAD Myotube detection.zip` in the folder you just unziped. To install the deep learning model you must then:
 - Open DeepImageJ installation plugin in FIJI/Imagej: select *Plugins > DeepImageJ > DeepImageJ Install Model*.
 - In the DeepImageJ interface, select *Private Model* tab.
-- Tick *From ZIP file* and fill the blank with the path of your `TRUEFAD Myotube detection.zip` model. For example: `D:\TRUEFAD\TRUEFAD Myotube detection.zip`.
+- Tick *From ZIP file* and fill the blank with the path of your `TRUEFAD Myotube detection.zip` model. For example: `D:\JeanPignon\TRUEFAD Myotube detection.zip`.
 - Tick the box stating that *I accept to install the model...* (we promise that our model is safe to install :blush:) and select *Install*.
 
 ## Usage
@@ -98,7 +98,14 @@ This section is addressed to developers who would like to get more details about
 The deep learning model has been trained using ZeroCostDL4Mic [notebooks](https://github.com/HenriquesLab/ZeroCostDL4Mic/wiki). We provide a copy of both our training/validation datasets and our deep learning model obtained with ZeroCostDL4Mic in our [release tagged 'data&model'](https://github.com/AurBrun/TRUEFAD/releases/tag/data%26model). As the notebooks may change on the ZeroCostDL4Mic website, we also provide in the `dev` folder the original `.ipynb` notebook we used to train our deep learning model. 
 
 ## Citation 
-
-Publication under review ...
+The original TRUEFAD publication is accessible on : https://www.nature.com/articles/s41598-024-53658-0 
+Brun, A., Mougeot, G., Denis, P. et al. A new bio imagery user-friendly tool for automatic morphometry measurement on muscle cell cultures and histological sections. Sci Rep 14, 3108 (2024). https://doi.org/10.1038/s41598-024-53658-0
 
 ## Acknowledgments and Funding
+Authors and Affiliations
+>UMR1019 Unité de Nutrition Humaine (UNH), INRAE, Université Clermont Auvergne, Clermont-Ferrand, France
+Aurélien Brun, Philippe Denis, Marie Laure Collin, Christophe Montaurier, Stéphane Walrand, Frédéric Capel & Marine Gueugneau
+>iGReD CNRS, INSERM Université Clermont Auvergne, Clermont-Ferrand, France
+Guillaume Mougeot & Pierre Pouchin
+
+We thank J.P. Rigaudière, J. Salles, A. Pinel, O. Le Bacquer, M. Rambeau, P. Sanchez, L. Guerrier, J. Touron, C. Barbé for their contribution to manually measured C2C12 myotube diameter for the training step of the deep learning model. we thank also C. Coudy-Gandhilon for giving sample images. Aurélien Brun was supported by a funding from Clermont-Auvergne Metropole. The work was supported by a grant from the Société Française de Nutrition Clinique et Métabolisme and Promega (Prix jeunes chercheurs 2022).
