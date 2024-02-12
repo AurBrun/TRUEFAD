@@ -114,10 +114,10 @@ The original TRUEFAD publication is accessible on : https://www.nature.com/artic
 Brun, A., Mougeot, G., Denis, P. et al. A new bio imagery user-friendly tool for automatic morphometry measurement on muscle cell cultures and histological sections. Sci Rep 14, 3108 (2024). https://doi.org/10.1038/s41598-024-53658-0
 
 ## Acknowledgments and Funding
-Authors and Affiliations
->UMR1019 Unité de Nutrition Humaine (UNH), INRAE, Université Clermont Auvergne, Clermont-Ferrand, France
+### Authors and Affiliations
+- UMR1019 Unité de Nutrition Humaine (UNH), INRAE, Université Clermont Auvergne, Clermont-Ferrand, France
 Aurélien Brun, Philippe Denis, Marie Laure Collin, Christophe Montaurier, Stéphane Walrand, Frédéric Capel & Marine Gueugneau
->iGReD CNRS, INSERM Université Clermont Auvergne, Clermont-Ferrand, France
+- iGReD CNRS, INSERM Université Clermont Auvergne, Clermont-Ferrand, France
 Guillaume Mougeot & Pierre Pouchin
 
 We thank J.P. Rigaudière, J. Salles, A. Pinel, O. Le Bacquer, M. Rambeau, P. Sanchez, L. Guerrier, J. Touron, C. Barbé for their contribution to manually measured C2C12 myotube diameter for the training step of the deep learning model. we thank also C. Coudy-Gandhilon for giving sample images. Aurélien Brun was supported by a funding from Clermont-Auvergne Metropole. The work was supported by a grant from the Société Française de Nutrition Clinique et Métabolisme and Promega (Prix jeunes chercheurs 2022).
