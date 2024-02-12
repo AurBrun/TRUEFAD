@@ -124,3 +124,4 @@ We thank J.P. Rigaudière, J. Salles, A. Pinel, O. Le Bacquer, M. Rambeau, P. Sa
 
 ## Next updates ...
 - TRUEFAD cells kill border will be optional: After segmentation, all myotubes currently touching the border are removed from the analysis, thus a bias might be introduced by removing "big myotubes"
+- Give a list of system specifications that have been tested and what parameters are recommended for this
