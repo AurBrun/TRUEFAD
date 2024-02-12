@@ -81,10 +81,10 @@ To start TRUEFAD-Histo, do:
 - Drag and drop the `TRUEFAD-Histo V1.6 - 30.10.23.ijm` file into FIJI. The FIJI macro editor should appear. 
 - Click on the "Run" button. 
 - Four options are available, depending on the objective of the analysis (see the main manuscript for further details) :
-  •	« Import and work on label image » to work on a previously processed label map.
-  •	« Segmentation of laminin image » to segment fibers using laminin (or other). In this case, only one folder is necessary. 
-  •	« Type attribution Laminin+Type1+Type2A ». Includes segmentation + labeling of type I and type IIA fibers (as explained in the manuscript).
-  •	« Type attribution Laminin+Type1+Type2A(+Type2X). Includes segmentation + intensity measurement of each fluorescence 3 different channels in the same pipeline.
+  - « Work on a label image » 
+  - « Segmentation of laminin image » to segment fibers using laminin (or other). In this case, only one folder is necessary. 
+  - « Type attribution Laminin+Type1+Type2A ». Includes segmentation + labeling of type I and type IIA fibers (as explained in the manuscript).
+  - « Type attribution Laminin+Type1+Type2A(+Type2X). Includes segmentation + intensity measurement of each fluorescence 3 different channels in the same pipeline.
 - You will get several windows to select the paths for the folders corresponding to each labeling (laminin, BAF8, and SC71 following the order specified in the name of the windows).
 - Step 3: It is here possible to adjust the probability threshold to assign fiber to type I or IIA. We recommend that you keep the default parameter but adjustments may be necessary depending on the quality of the image acquisition. A few images from a batch may be firstly checked manually using a different threshold and rerun TRUEFAD.
 - Step 4: Different parameters can be adapted here to adjust the resulting segmentation, fiber retention, and results export
