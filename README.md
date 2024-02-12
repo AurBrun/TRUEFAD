@@ -5,7 +5,7 @@ Last update: 12FEB24
 [![](https://github.com/AurBrun/TRUEFAD/blob/main/dev/Thumbnail.png?raw=true)](https://youtu.be/4vMrz28spzo)
 
 ## Description
-TRUEFAD is a composition of two FIJI/ImageJ macros designed to analyze two-dimensional images of muscle cells: TRUEFAD-Histo and TRUEFAD-Cells. TRUEFAD allows the automatization of morphological measurements from phase contrast images of C2C12 and human myotubes (TRUEFAD-Cells) and fluorescent laminin-dystrophin images of muscle cross sections (TRUEFAD-Histo). 
+TRUEFAD is a composition of two FIJI/ImageJ macros designed to analyze two-dimensional images of muscle cells: TRUEFAD-Histo and TRUEFAD-Cells. TRUEFAD allows the automatization of morphological measurements from phase contrast images of C2C12 as well as human myotubes (TRUEFAD-Cells), and fluorescent laminin-dystrophin images of muscle cross sections (TRUEFAD-Histo). 
 
 TRUEFAD-Cells relies on a U-Net deep learning model trained with ZeroCostDL4Mic online [notebooks](https://github.com/HenriquesLab/ZeroCostDL4Mic/wiki). 
 
