@@ -1,6 +1,6 @@
 requires("1.53f");
 toolname = "ImageJ-TRUEFAD Histo";
-version = "V1.6";
+version = "V1.7";
 	
 // Dialogs
 //Dependancies
@@ -484,6 +484,7 @@ if (MainPipeline == 1) {
 		Type2A = Table.getColumn("Mean");
 		if (Type4 == 1) {
 			// For type2b
+			close("Results");
 			selectWindow("Stack");
 			run("Next Slice [>]");
 			roiManager("Show All");
