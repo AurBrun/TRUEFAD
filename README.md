@@ -1,5 +1,5 @@
 # TRUEFAD, TRUE Fiber Atrophy Distinction
-Last update: 02MAY24 > Adding TRUEFAD-Histo python script that can K-Mean cluster fibres based on their respective fluorescence intensity for both pipelines (see below description)
+**Last update: 02MAY24 > Adding TRUEFAD-Histo python script that can K-Mean cluster fibres based on their respective fluorescence intensity for both pipelines (see TRUEFAD Histo K-mean Clustering section)**
 
 # | Youtube video presentation & tutorial |
 [![](https://github.com/AurBrun/TRUEFAD/blob/main/dev/Thumbnail.png?raw=true)](https://youtu.be/4vMrz28spzo)
