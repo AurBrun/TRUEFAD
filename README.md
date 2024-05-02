@@ -1,5 +1,5 @@
 # TRUEFAD, TRUE Fiber Atrophy Distinction
-Last update: 12FEB24
+Last update: 02MAY24 > Adding TRUEFAD-Histo python script that can K-Mean cluster fibres based on their respective fluorescence intensity for both pipelines (see below description)
 
 # | Youtube video presentation & tutorial |
 [![](https://github.com/AurBrun/TRUEFAD/blob/main/dev/Thumbnail.png?raw=true)](https://youtu.be/4vMrz28spzo)
@@ -102,7 +102,24 @@ To start TRUEFAD-Histo, do:
 - At the end of the analysis, a few windows open, please click on « ok » for each.
 - Results (TIF label map, Composite JPG image, ROI zip folder) could be found in the "Result" path previously selected by the user. A detailed quantified output could be found as an Excel file "rename me after writing is done" saved on the computer desktop according to the Read&WriteExcel plugin.
 -We recommend checking all images for consistency in segmentation and fiber type identification. If not, rerun TRUEFAD with different settings.
-  
+### TRUEFAD Histo K-mean Clustering ###
+After your file is exported, we recommend you clean your raw data by removing lanes of falsely discovered fibres while keeping the file structure identic (sort by count for each block of data once done)
+You can now start using the TRUEFAD Histo Clusterization program we developed for both pipeline 3 (Type I and Type IIA) and pipeline 4 (Type I, Type IIA and Type IIB or X)
+Option1: Download directly the portable executable version for [Pipeline_3.exe](https://drive.uca.fr/f/4fad7ce193c04396b520/?dl=1) or for [Pipeline_4.exe](https://drive.uca.fr/f/38d94170dc3f49a0b38a/?dl=1)
+Option2: Download and install Python 3.10, OpenPyXL, Tkinter, Pandas, SKlearn, and Numpy as well as an interpreter. Open and run the corresponding Python script that is found in the main branch [Pipeline_3](https://github.com/AurBrun/TRUEFAD/blob/main/TRUEFAD-Histo-Pipeline3-K_mean_Clustering_V1.3.py) or [Pipeline_4.py](https://github.com/AurBrun/TRUEFAD/blob/main/TRUEFAD-Histo-Pipeline4-K_mean_Clustering_V1.3.py)
+Once executed, the program will start. You may have to wait for a minute until it finishes to load all the imports.
+A window will appear and ask you what size and roundness filter you want to apply to the data.
+You should give the number of clusters (fiber classes) you want the K-mean clustering to find on your dataset.
+Once the Excel file is selected, you should press "read" and wait.
+The program should by itself identify the number of data blocks and process it block by block, it should print the name of the image (and block of data) that was successfully clusterized
+Once all images have been clusterized, the program will export the metrics and format a new Excel file that will also be exported
+Whenever the program is done, it should print "JOB DONE" in the log and you should find your resulting Excel file on your desktop
+The first sheet of the resulting Excel presents all the clusterization metrics for each image block (Silhouette score, Davies Bouldin, Calinski Harabasz, Inertia)
+The second sheet will export the raw entry data as a backup
+The third sheet will show you the filtered dataset that was clusterized. Each of the blocks was appended with one column containing as header the name of the image and then the clusterization that was made.
+K-Mean clustering is a random clusterization method initiated for each image block. The label assigned to each of the fiber will have to be associated with your fiber type of interest based on image matching.
+To reformulate it, as the clusterization process is random, the Type I fibers on your image_1 might be assigned as "0" while Type I fibers on your image_2 might be assigned as "2". The clusterization method will still offer the most robust way to get automatically supervised fiber type attribution, whenever your image has a high background or low signal. It will classify your fibers by groups based on best inner-cluster cohesion and inter-cluster separation.
+
 ## Deep learning model training
 
 This section is addressed to developers who would like to get more details about our deep learning model training or who intend to reproduce the results presented in our publication. This section is thus not needed for users only.
