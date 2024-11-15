@@ -143,5 +143,8 @@ Guillaume Mougeot & Pierre Pouchin
 We thank J.P. Rigaudière, J. Salles, A. Pinel, O. Le Bacquer, M. Rambeau, P. Sanchez, L. Guerrier, J. Touron, C. Barbé for their contribution to manually measured C2C12 myotube diameter for the training step of the deep learning model. we thank also C. Coudy-Gandhilon for giving sample images. Aurélien Brun was supported by a funding from Clermont-Auvergne Metropole. The work was supported by a grant from the Société Française de Nutrition Clinique et Métabolisme and Promega (Prix jeunes chercheurs 2022).
 
 ## Next updates ...
-- TRUEFAD cells kill border will be optional: After segmentation, all myotubes currently touching the border are removed from the analysis, thus a bias might be introduced by removing "large myotubes"
-- Adding a list of Imageing systems that have been tested with their respective recommended parameters
+- Migration from IJM to Python/Jython for better support
+- TRUEFAD histo will directly implement K-mean clusterization algorithm
+- More task will be done by TRUEFAD histo related to other common muscle staining
+- TRUEFAD cells model should be moving from Semantic to Instance segmentation with new training capacities and myoblast detection  
+- TRUEFAD cells diameter measurement algorithms will be simplified and more robust
