@@ -1,5 +1,6 @@
 # TRUEFAD, TRUE Fiber Atrophy Distinction
-**Last update: 02MAY24 > Adding TRUEFAD-Histo python script that can K-Mean cluster fibres based on their respective fluorescence intensity for both pipelines (see TRUEFAD Histo K-mean Clustering section)**
+## 17MAR25 note about recent DeepImageJ update > TRUEFAD 2.0 is now in construction with more features, better built in functionnalities and adpatability. In waiting here is a fix for TRUEFAD Cells DeepImageJ call once you unzipped and installed the model:
+`Go to Plugin > DeepImageJ > Create Macro, then tick "Display Output", copy the call underneath and paste it inplace to the line 123 of your TRUEFAD macro code.`
 
 # | Youtube video presentation & tutorial |
 [![](https://github.com/AurBrun/TRUEFAD/blob/main/dev/Thumbnail.png?raw=true)](https://youtu.be/4vMrz28spzo)
@@ -46,12 +47,6 @@ To use TRUEFAD-Cells, the trained deep learning model must be installed in DeepI
 
 ## Usage
 ### TRUEFAD-Cells 
-<p>
-  <span style="background-color: yellow; color: red;">
-    <strong>Go to Plugin > DeepImageJ > Create Macro, then tick Display Output and copy the call underneath and paste it to the line 123 of your TRUEFAD macro code.</strong>
-  </span>
-</p>
-
 
 Input image                |  TRUEFAD-Cells output
 :-------------------------:|:-------------------------:
