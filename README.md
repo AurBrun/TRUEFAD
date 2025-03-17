@@ -46,6 +46,12 @@ To use TRUEFAD-Cells, the trained deep learning model must be installed in DeepI
 
 ## Usage
 ### TRUEFAD-Cells 
+<p>
+  <span style="background-color: yellow; color: red;">
+    <strong>Go to Plugin > DeepImageJ > Create Macro, then tick Display Output and copy the call underneath and paste it to the line 123 of your TRUEFAD macro code.</strong>
+  </span>
+</p>
+
 
 Input image                |  TRUEFAD-Cells output
 :-------------------------:|:-------------------------:
